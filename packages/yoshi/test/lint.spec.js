@@ -90,37 +90,39 @@ describe('Aggregator: Lint', () => {
       expect(res.stdout).to.contain('Missing radix parameter');
     });
 
-    it('should use tslint on js files if project is typescript', () => {
-      const res = test
-        .setup({
-          'app/a.js': 'parseInt("1", 10)',
-          'package.json': fx.packageJson(),
-          'tsconfig.json': fx.tsconfig({
-            files: ['app/a.js'],
-            compilerOptions: { allowJs: true },
-          }),
-          'tslint.json': fx.tslint({ radix: true }),
-        })
-        .execute('lint', ['app/a.js']);
+    describe('JS files in TS project', () => {
+      it('should run tslint on js files when project is typescript', () => {
+        const res = test
+          .setup({
+            'app/a.js': 'parseInt("1", 10)',
+            'package.json': fx.packageJson(),
+            'tsconfig.json': fx.tsconfig({
+              files: ['app/a.js'],
+              compilerOptions: { allowJs: true },
+            }),
+            'tslint.json': fx.tslint({ radix: true }),
+          })
+          .execute('lint', ['app/a.js']);
 
-      expect(res.code).to.equal(0);
-    });
+        expect(res.code).to.equal(0);
+      });
 
-    it('should lint js files with tslint', () => {
-      const res = test
-        .setup({
-          'app/a.js': 'parseInt("1")',
-          'package.json': fx.packageJson(),
-          'tsconfig.json': fx.tsconfig({
-            files: ['app/a.js'],
-            compilerOptions: { allowJs: true },
-          }),
-          'tslint.json': fx.tslint({ radix: true }),
-        })
-        .execute('lint', ['app/a.js']);
+      it('should lint js files with tslint', () => {
+        const res = test
+          .setup({
+            'app/a.js': 'parseInt("1")',
+            'package.json': fx.packageJson(),
+            'tsconfig.json': fx.tsconfig({
+              files: ['app/a.js'],
+              compilerOptions: { allowJs: true },
+            }),
+            'tslint.json': fx.tslint({ radix: true }),
+          })
+          .execute('lint', ['app/a.js']);
 
-      expect(res.code).to.equal(1);
-      expect(res.stdout).to.contain('Missing radix parameter');
+        expect(res.code).to.equal(1);
+        expect(res.stdout).to.contain('Missing radix parameter');
+      });
     });
 
     describe('when file paths supplied', () => {
