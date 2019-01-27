@@ -27,9 +27,9 @@
     "ajv": "^6.5.3",
     "ajv-keywords": "^3.2.0",
     "autoprefixer": "~7.1.2",
-    "babel-jest": "^23.2.0",
     "babel-core": "^7.0.0-0",
     "babel-eslint": "^10.0.1",
+    "babel-jest": "^23.2.0",
     "babel-loader": "~8.0.4",
     "babel-plugin-transform-hmr-runtime": "^4.0.0",
     "babel-preset-yoshi": "^4.0.0",
@@ -105,6 +105,7 @@
     "stylelint-config-yoshi": "3.16.0",
     "stylelint-prettier": "^1.0.3",
     "svg-inline-loader": "~0.8.0",
+    "svg-url-loader": "^2.3.2",
     "terser-webpack-plugin": "1.1.0",
     "thread-loader": "^1.1.4",
     "tpa-style-webpack-plugin": "^1.0.0",
@@ -177,7 +178,6 @@
     "shmock": "~0.8.1",
     "strip-ansi": "^4.0.0",
     "style-loader": "^0.18.2",
-    "svg-url-loader": "^2.3.2",
     "tempy": "~0.2.1",
     "typescript": "^3.0.1"
   }
