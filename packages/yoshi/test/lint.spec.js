@@ -90,6 +90,20 @@ describe('Aggregator: Lint', () => {
       expect(res.stdout).to.contain('Missing radix parameter');
     });
 
+    it('should use tslint on js files if project is typescript', () => {
+      const res = test
+        .setup({
+          'app/a.js': `require('../not-in-glob/b');`,
+          'not-in-glob/b.js': 'parseInt("1", 10)',
+          'package.json': fx.packageJson(),
+          'tsconfig.json': fx.tsconfig({ files: ['app/a.js'] }),
+          'tslint.json': fx.tslint({ radix: true }),
+        })
+        .execute('lint', ['app/a.js']);
+
+      expect(res.code).to.equal(0);
+    });
+
     describe('when file paths supplied', () => {
       it('should work as expected if all files are within the files specified in tsconfig.json', () => {
         const res = test
