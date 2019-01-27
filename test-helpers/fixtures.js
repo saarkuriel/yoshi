@@ -55,7 +55,7 @@ const fx = {
       null,
       2,
     ),
-  tslint: rules => JSON.stringify({ rules }, null, 2),
+  tslint: rules => JSON.stringify({ rules, jsRules: rules }, null, 2),
   eslintrc: () =>
     JSON.stringify(
       {
