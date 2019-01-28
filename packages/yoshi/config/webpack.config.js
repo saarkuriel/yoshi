@@ -442,6 +442,22 @@ function createCommonWebpackConfig({
                   loader: 'svg-url-loader',
                   options: {
                     iesafe: true,
+                    noquotes: true,
+                    limit: 10000,
+                  },
+                },
+              ],
+            },
+            {
+              test: /\.svg$/,
+              issuer: {
+                test: reStyle,
+              },
+              use: [
+                {
+                  loader: 'svg-url-loader',
+                  options: {
+                    iesafe: true,
                   },
                 },
               ],
