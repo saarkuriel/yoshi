@@ -450,9 +450,6 @@ function createCommonWebpackConfig({
             },
             {
               test: /\.svg$/,
-              issuer: {
-                test: reStyle,
-              },
               use: [
                 {
                   loader: 'svg-url-loader',
