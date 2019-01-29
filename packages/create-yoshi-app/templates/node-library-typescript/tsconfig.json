@@ -17,7 +17,7 @@
     "./test/**/*.ts"
   ],
   "files": [
-    "./node_modules/yoshi/yoshi-types.d.ts",
+    "./node_modules/yoshi/types.d.ts",
     "./src/index.ts"
   ]
 }

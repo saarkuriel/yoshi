@@ -10,7 +10,7 @@
     "src/errors"
   ],
   "files": [
-    "./node_modules/yoshi/yoshi-types.d.ts"
+    "./node_modules/yoshi/types.d.ts"
   ],
   "include": [
     "src"
