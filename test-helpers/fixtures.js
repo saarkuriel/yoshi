@@ -41,7 +41,7 @@ const fx = {
           compilerOptions: {
             module: 'commonjs',
             target: 'es5',
-            lib: ['es5', 'es6', 'esnext'],
+            lib: ['esnext'],
             moduleResolution: 'node',
             sourceMap: true,
             outDir: 'dist',
