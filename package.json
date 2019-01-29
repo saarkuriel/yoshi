@@ -20,7 +20,7 @@
     "test:unit": "npx jest --config='./jest.unit.config.js'",
     "test:app-flow": "node scripts/runKitchensink.js",
     "website:dev": "npm start --prefix './website'",
-    "pr-release": "npm build --prefix './website' && surge-github-autorelease -r $REPO_SLUG -s './website/build' -b . -p $PULL_REQUEST -t $GITHUB_API_TOKEN -d $DOMAIN"
+    "pr-postbuild": "npm build --prefix './website' && surge-github-autorelease -r $REPO_SLUG -s './website/build' -b . -p $PULL_REQUEST -t $GITHUB_API_TOKEN"
   },
   "husky": {
     "hooks": {
