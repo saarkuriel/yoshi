@@ -458,6 +458,7 @@ function createCommonWebpackConfig({
                   loader: 'svg-url-loader',
                   options: {
                     iesafe: true,
+                    limit: 10000,
                   },
                 },
               ],
