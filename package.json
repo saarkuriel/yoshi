@@ -19,7 +19,8 @@
     "test:integration": "npm test --prefix ./packages/yoshi",
     "test:unit": "npx jest --config='./jest.unit.config.js'",
     "test:app-flow": "node scripts/runKitchensink.js",
-    "website:dev": "npm start --prefix './website'"
+    "website:dev": "npm start --prefix './website'",
+    "pr-release": "npm build --prefix './website' && surge-github-autorelease -r $REPO_SLUG -s './website/build' -b . -p $PULL_REQUEST -t $GITHUB_API_TOKEN -d $DOMAIN"
   },
   "husky": {
     "hooks": {
@@ -58,8 +59,8 @@
     "husky": "^1.0.0-rc.9",
     "jest": "^23.6.0",
     "jest-environment-puppeteer": "^3.4.0",
-    "jest-teamcity-reporter": "^0.9.0",
     "jest-puppeteer": "^3.4.0",
+    "jest-teamcity-reporter": "^0.9.0",
     "lerna": "^2.11.0",
     "lerna-changelog": "^0.8.0",
     "lint-staged": "^7.2.0",
@@ -77,6 +78,7 @@
     "serve": "^10.0.2",
     "shelljs": "^0.8.2",
     "strip-ansi": "^4.0.0",
+    "surge-github-autorelease": "^1.0.44",
     "tempy": "^0.2.1",
     "terminate": "^2.1.0",
     "verdaccio": "^3.8.3",
