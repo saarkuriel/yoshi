@@ -28,7 +28,10 @@ jobs:
     - name: "website - release to surge"
       if: type = pull_request
       script:
-      - cd website && yarn install && yarn build && surge-github-autorelease -o wix -n yoshi -d wix-yoshi -s './build' -b . -p $TRAVIS_PULL_REQUEST
+      - cd website
+      - yarn install 
+      - yarn build
+      - surge-github-autorelease -o wix -n yoshi -d wix-yoshi -s './build' -b . -p $TRAVIS_PULL_REQUEST
     - name: "test:integration"
       if: type != pull_request
       before_script: 
