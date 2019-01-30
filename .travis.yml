@@ -31,7 +31,10 @@ jobs:
       - cd website
       - yarn install 
       - yarn build
-      - surge-github-autorelease -o wix -n yoshi -s './build' -b . -p $TRAVIS_PULL_REQUEST -d wix-yoshi
+      deploy:
+        provider: surge
+        project: ./build/yoshi
+        domain: wix-yoshi-${TRAVIS_PULL_REQUEST}.surge.sh
     - name: "test:integration"
       if: type != pull_request
       before_script: 
