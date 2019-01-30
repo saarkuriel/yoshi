@@ -9,6 +9,7 @@
     "rename-version": "docusaurus-rename-version"
   },
   "devDependencies": {
-    "docusaurus": "^1.4.0"
+    "docusaurus": "^1.4.0",
+    "surge-github-autorelease": "^1.0.44"
   }
 }
