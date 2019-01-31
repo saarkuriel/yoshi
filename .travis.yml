@@ -54,4 +54,4 @@ jobs:
       before_script: npm install
       script: npm run lint 
 after_success: 
-  - surge --project ./build --domain wix-yoshi-${TRAVIS_PULL_REQUEST}.surge.sh
+  - npx surge --project ./website/build --domain wix-yoshi-${TRAVIS_PULL_REQUEST}.surge.sh
