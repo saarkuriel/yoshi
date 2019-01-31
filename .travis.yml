@@ -31,10 +31,7 @@ jobs:
       - cd website
       - yarn install 
       - yarn build
-      deploy:
-        provider: surge
-        project: ./build/yoshi
-        domain: wix-yoshi-${TRAVIS_PULL_REQUEST}.surge.sh
+      - npx surge --project ./build --domain wix-yoshi-${TRAVIS_PULL_REQUEST}.surge.sh
     - name: "test:integration"
       if: type != pull_request
       before_script: 
