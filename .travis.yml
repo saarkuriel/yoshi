@@ -31,7 +31,6 @@ jobs:
       - cd website
       - yarn install 
       - yarn build
-      - npx surge --project ./build --domain wix-yoshi-${TRAVIS_PULL_REQUEST}.surge.sh
     - name: "test:integration"
       if: type != pull_request
       before_script: 
@@ -54,3 +53,5 @@ jobs:
       if: type != pull_request
       before_script: npm install
       script: npm run lint 
+after_success: 
+  - surge --project ./build --domain wix-yoshi-${TRAVIS_PULL_REQUEST}.surge.sh
