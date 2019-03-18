@@ -16,6 +16,5 @@ describe('App', () => {
     );
 
     expect(queryByTestId('app-title')).not.toBeNull();
-    expect(queryByTestId('app-title')).toBeDefined();
   });
 });
